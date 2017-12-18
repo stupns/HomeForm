@@ -1,0 +1,120 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <title>Forum</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+
+{% if username %}
+    <li><a href="/logout/"><span class="glyphicon glyphicon-user"></span> Выйти ({{ username }})</a></li>
+{% else %}
+    <li><a href="/login/"><span class="glyphicon glyphicon-user"></span> Войти</a></li>
+{% endif %}
+
+{{ username }}
+
+<div class="jumbotron">
+<div class="container">
+    <main class="row">
+        <article class="col-sm-12 col-md-8 col-lg-9">
+        <div align="center">
+        <div class="jumbotron" align="center">
+            <div class="alert alert-success">
+                <h1>Python/Django/Bootstrap</h1>
+            </div>
+        </div>
+</div>
+    {% block message %}
+    {% endblock %}
+        {% block universal %}
+        {% endblock %}
+        {% block login %}
+        {% endblock %}
+        </article>
+        <aside class="col-sm-12 col-md-4 col-lg-3">
+            <!--Ряд, блок с классом row-->
+            <div class="row">
+              <!--Адаптивный блок 1-->
+              <div class="col-sm-6 col-md-12">
+                <!--Содержимое-->
+              </div>
+              <!--Адаптивный блок 2-->
+              <div class="col-sm-6 col-md-12">
+                <!--Содержимое-->
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm"><!-- Адаптивная разметка для мобильных устройств-->
+<div class="list-group">
+  <a href="#" class="list-group-item active list-group-item-success">
+    Категорії
+  </a>
+      <a href="/blog/catlist/" class="list-group-item" data-toggle="tooltip" title="Список категорий">Список категорій</a>
+      <a href="/blog/category/django/" class="list-group-item" data-toggle="tooltip" title="Рубрика об Django">Django</a>
+      <a href="/blog/category/python/" class="list-group-item" data-toggle="tooltip" title="Рубрика об Python">Python</a>
+      <a href="/blog/category/pycharm/" class="list-group-item" data-toggle="tooltip" title="Рубрика об Pycharm">Pycharm</a>
+      <a href="/blog/category/mysql/" class="list-group-item" data-toggle="tooltip" title="Рубрика об MySql">MySql</a>
+      <a href="/blog/category/apache/" class="list-group-item" data-toggle="tooltip" title="Рубрика об Apache">Apache</a>
+
+      <a href="/upload/" class="list-group-item" data-toggle="tooltip" title="Загрузка файлов">Загрузка файлов <span class="label label-success">Обновлено</span></a>
+
+
+</div>
+
+
+
+<div class="list-group">
+  <a href="#" class="list-group-item active list-group-item-success">
+  Сторінки без баз даних
+  </a>
+      <a href="/" class="list-group-item">Главная</a>
+      <a href="/info/aboutme/" class="list-group-item" data-toggle="tooltip" title="Кто мы?">О нас</a>
+      <a href="/info/pay/" class="list-group-item" data-toggle="tooltip" title="Оплата товара">Оплата</a>
+      <a href="/info/aboutproject/" class="list-group-item" data-toggle="tooltip" title="Все что касается нашего портала">О проекте</a>
+      <a href="/info/news/" class="list-group-item" data-toggle="tooltip" title="Раздел с новостями сайта">Новости</a>
+</div>
+
+<div class="list-group">
+  <a href="#" class="list-group-item active list-group-item-success">
+  Сторінки з базами даних
+  </a>
+      <a href="/info/rabota/" class="list-group-item" data-toggle="tooltip" title="Примеры наших работ">Наша работа</a>
+      <a href="/info/helping/" class="list-group-item" data-toggle="tooltip" title="Поддержка">Помощь</a>
+      <a href="/info/rules/" class="list-group-item" data-toggle="tooltip" title="Правила портала">Правила</a>
+      <a href="/info/commodity/" class="list-group-item" data-toggle="tooltip" title="Наш товар">Товар</a>
+      <a href="/info/closeout/" class="list-group-item" data-toggle="tooltip" title="Рспродажа товаров по низким ценам">Распродажа</a>
+      <a href="/info/slider/" class="list-group-item" data-toggle="tooltip" title="Слайдер">Слайдер</a>
+</div>
+
+<div class="list-group">
+  <a href="#" class="list-group-item active list-group-item-success">
+  Додаткові сторінки
+  </a>
+      <a href="#" class="list-group-item" data-toggle="tooltip" title="Блог на моем практикуме!">Практикум извлечение записи из базы данных по id - Блог!</a>
+      <a href="/info/order/" class="list-group-item" data-toggle="tooltip" title="Работа с базой данных">Выборка из базы</a>
+      <a href="/forms/" class="list-group-item" data-toggle="tooltip" title="Очень простая форма">Форма1</a>
+      <a href="/forms2/" class="list-group-item" data-toggle="tooltip" title="Чуть сложнее форма">Форма2</a>
+      <a href="/forms3/" class="list-group-item" data-toggle="tooltip" title="Совсем сложная форма">Форма3</a>
+      <a href="/blog/time/1/" class="list-group-item" data-toggle="tooltip" title="Вывод даты и времени">Дата и время - пример</a>
+      <a href="/blog/gtx/" class="list-group-item" data-toggle="tooltip" title="Всякие разнае страницы!">Просто страница! </a>
+</div>
+</nav>
+              </div>
+            </div>
+        </aside>
+    </main>
+</div>
+
+
+
+</div>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+
+</body>
+</html>

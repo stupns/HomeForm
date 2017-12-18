@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+{% block universal %}
+
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+
+      <p>
+
+        {{ field|bootstrap_horizontal }}
+        {% for error in field.errors %}
+            {{ error|bootstrap_horizontal }}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button class="btn btn-group-sm" type="submit">Sign up</button>
+  </form>
+{% endblock %}

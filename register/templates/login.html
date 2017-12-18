@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+{% block login %}
+
+
+ <div class="panel panel-success">
+  <div class="panel-heading">
+    <h2 class="panel-title">Вхід</h2>
+  </div>
+  <div class="panel-body">
+<div class="well well-lg">
+    <h3></h3>
+<form action="/login/" method="post">
+    {% csrf_token %}
+    <label for="username">Ім'я користувача</label>
+    <input class="form-control" type="text" name="username" id="username"><br>
+    <label for="password">Пароль</label>
+    <input class="form-control" type="password" name="password" id="password"><br>
+    <input class="button" type="submit" value="Войти">
+    {% if login_error %}
+        <label class="error">{{ login_error }}</label>
+    {% endif %}
+
+</form><br>
+        <link rel="stylesheet" type="text/css" href="{% static "css/my_style.css" %}" />
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block message %}
+        <a href="{% url 'forum:edit_mess' pk=mess.pk %}" class="glyphicon glyphicon-repeat"></a>
+
+<div class="mess">
+    <a href=""></a>
+{% if mess.mes_created_date %}
+    <div class="date">
+        {{ mess.mes_created_date }}
+    </div>
+{% endif %}
+
+    {{ mess.mes_title }}
+    {{ mess.mes_text|linebreaks }}
+</div>
+<a href="{% url 'forum:mess_list' %}">Всі записи</a>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_style.css' %}" />
+{% endblock %}

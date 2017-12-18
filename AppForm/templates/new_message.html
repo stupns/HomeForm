@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block message %}
+<form method="post">
+{% csrf_token %}
+    <p>{{ user }} введіть повідомлення:</p>
+    {{ form.as_p }}
+    <input type="submit" value="відправити">
+</form>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/my_style.css' %}" />
+{% endblock %}

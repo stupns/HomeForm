@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block message %}
+
+{% if errors %}
+
+    {% for error in errors %}
+       <div class="alert alert-danger"> {{ error }}</div>
+    {% endfor %}
+
+{% endif %}<br>
+
+ <div class="panel panel-success">
+  <div class="panel-heading">
+    <h2 class="panel-title">Зворотній зв'зок</h2>
+  </div>
+  <div class="panel-body">
+<div class="well well-lg">
+    <h3></h3>
+    <form action="/contact/" method="post">{% csrf_token %}
+        <input class="form-control" placeholder="Введіть ім'я" name="name"  type="text" value="{{ form.name }}"><br>
+        <input class="form-control" placeholder="Введіть email" name="email" type="text" value="{{ form.email }}"><br>
+        <textarea class="form-control" placeholder="Введіть ваше повідомлення" cols = '40'  name="message">{{ form.message }}</textarea><br>
+
+    <input type="submit" value="Послать сообщение">
+
+    </form>
+</div>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/my_style.css' %}" />
+
+
+
+{% endblock %}

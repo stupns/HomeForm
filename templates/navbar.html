@@ -1,0 +1,61 @@
+{% load staticfiles %}
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" href="#">Forum</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'forum:mess_list' %}">Всі пости</a></li>
+          <li><a href="{% url 'form:form_send' %}">Зворотній звязок</a></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Дії<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'forum:new_mess' %}">Добавити</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Отдельная ссылка</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Еще одна отдельная ссылка</a></li>
+          </ul>
+        </li>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+        {% if username %}
+        <li><a href="{% url 'register:login' %}">Ввійти</a></li>
+        {% else %}
+        <li><a href="{% url 'register:login' %}">Ввійти</a></li>
+        {% endif %}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Дії <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'register:signup' %}">Реєстрація</a></li>
+              {% if username %}
+            <li><a href="{% url 'register:logout' %}">Вийти {{ username }}</a></li>
+              {% else %}
+              <li><a href="{% url 'register:login' %}">Ввійти</a></li>
+              {% endif %}
+            <li><a href="#">Что-то еще</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Отдельная ссылка</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>

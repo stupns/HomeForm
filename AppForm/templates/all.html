@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block message %}
+<div class="alert alert-info">
+<div class="div">
+    <button type="button" class="btn btn-warning">
+        <a href="{% url 'forum:new_mess' %}">Нове повідомлення</a><br>
+    </button>
+</div>
+     <br>
+<div class="alert alert-success">
+{% for go in go %}
+  Автор : {{ go.author }}
+<h3><a href="{% url 'forum:mess_detail' go.pk%}">{{ go.mes_title  }}</a></h3>
+    {{ go.mes_text }}     <br>
+     <br>
+    Дата: {{ go.mes_created_date }}<br>
+     <br>
+        <a href="{% url 'forum:edit_mess' pk=go.pk %}" class="glyphicon glyphicon-repeat"></a> редагувати
+     <hr>
+    {% endfor %}
+</div>
+</div>
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_style.css' %}" />
+
+{% endblock %}

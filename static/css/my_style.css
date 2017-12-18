@@ -1,0 +1,17 @@
+.navbar-inverse {
+    position: relative;
+    min-height: 50px;
+    border: 1px solid transparent;
+    margin-bottom: 0px;
+}
+
+.jumbotron {
+    background-color: rgba(178,198,178,0.5);
+}
+
+.jumbotron h1{
+    margin: 0px;
+}
+.navbar {
+    margin-bottom: 0px;
+}
